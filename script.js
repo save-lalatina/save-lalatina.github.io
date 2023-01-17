@@ -36,14 +36,14 @@ function startSearch() {
       };
 
       recognition.onspeechend = function () {
-        console.log('саня лох')
+        alert('саня лох')
         recognition.stop();
         btnListen.classList.remove("active");
         listening = false;
       };
 
       recognition.onerror = function () {
-        console.log('саня пидр')
+        alert('саня пидр')
         btnListen.classList.remove("active");
         listening = false;
       };
