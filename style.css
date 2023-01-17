@@ -1,0 +1,152 @@
+body {
+  align-items: center;
+  background-color: #eee;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  margin: 0;
+}
+
+.a11y-hidden {
+  position: absolute;
+  left: -1000in;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: polygon(0 0, 0 0);
+}
+
+.search {
+  width: 90%;
+  max-width: 30rem;
+  position: relative;
+}
+.search .input-bar {
+  --active: #eee;
+  align-items: center;
+  background: #fff;
+  border: 2px solid #0000;
+  border-radius: 4rem;
+  box-sizing: border-box;
+  box-shadow: 0 1rem 2rem -1.5rem #0005;
+  display: inline-flex;
+  height: 4rem;
+  overflow: hidden;
+  transition: box-shadow 0.5s;
+  width: 100%;
+}
+.search .input-bar:focus-within {
+  background: #fffffc;
+  border: 2px solid #444;
+  box-shadow: 0 1rem 2rem -1.5rem #0007;
+}
+.search .input-bar:hover {
+  box-shadow: 0 1rem 2rem -1.5rem #0007;
+}
+.search .input-bar label {
+  position: absolute;
+  color: #888;
+  left: 1.625rem;
+  font-family: Lato, Arial, sans-serif;
+  font-size: 1.25rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: calc(100% - 8rem);
+  max-width: calc(100% - 8rem);
+  display: flex;
+  align-items: center;
+  z-index: 0;
+}
+.search .input-bar label span {
+  visibility: hidden;
+  overflow: hidden;
+  max-width: 0;
+  display: inline-block;
+  margin: 0 0.125rem;
+  transition: max-width 1s, margin 0.125s;
+  transition-delay: 1s;
+}
+.search .input-bar label span.show {
+  visibility: visible;
+  margin: 0 0.25rem;
+  max-width: calc(100% - 8rem);
+}
+.search .input-bar input {
+  background: transparent;
+  border: 0;
+  box-sizing: border-box;
+  flex: 1;
+  font-size: 1.25rem;
+  margin-left: 0.5rem;
+  min-width: 8rem;
+  outline: none;
+  padding-left: 1rem;
+  position: relative;
+  z-index: 1;
+}
+.search .input-bar input::-ms-clear, .search .input-bar input::ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+.search .input-bar input::-webkit-search-decoration, .search .input-bar input::-webkit-search-cancel-button, .search .input-bar input::-webkit-search-results-button, .search .input-bar input::-webkit-search-results-decoration {
+  display: none;
+  width: 0;
+  height: 0;
+}
+.search .input-bar button {
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  color: #444;
+  font-size: 1.25rem;
+  margin: 0;
+  outline: none;
+  width: 3rem;
+  min-width: 3rem;
+  height: 3rem;
+  transition: background-color, color;
+  transition-duration: 0.25s;
+  box-shadow: 0 0 2rem #0000;
+}
+.search .input-bar button:hover {
+  background: #eee;
+}
+.search .input-bar button:focus {
+  background: #444;
+  color: #fff;
+}
+.search .input-bar button:active, .search .input-bar button.active {
+  background: #000;
+}
+.search .input-bar button#dictate {
+  transform: scale(0);
+  transition: transform 0.5s;
+  transition-delay: 1s;
+  visibility: hidden;
+}
+.search .input-bar button#dictate svg {
+  display: none;
+  margin: auto auto;
+}
+.search .input-bar button#dictate.show {
+  visibility: visible;
+  transform: scale(1);
+}
+.search .input-bar button#dictate.active i {
+  display: none;
+}
+.search .input-bar button#dictate.active svg {
+  display: block;
+}
+.search .input-bar button:last-child {
+  margin-right: 0.5rem;
+}
+
+@media (prefers-reduced-motion) {
+  * {
+    transition: none !important;
+    transition-delay: 0s !important;
+  }
+}
