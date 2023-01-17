@@ -60,6 +60,8 @@ function startSearch() {
       };
 
       recognition.start();
+    } else {
+      btnListen.classList.remove("active");
     }
   });
 }
